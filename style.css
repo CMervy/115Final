@@ -5,6 +5,7 @@
 }
 body {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: 100vh;
@@ -43,9 +44,9 @@ body {
 .scoreboard {
     display: flex;
     gap: 20px;
-    margin-bottom: 20px;
-    position: absolute;
-    top: 20vh;
+    
+     position: static;
+    margin-bottom: 60px;
 }
 
 .score {
@@ -58,8 +59,8 @@ body {
     text-align: center;
 }
 h1{
-    position: absolute;
-    top: 5vh;
+    position: static;
+    margin-bottom: 70px;
     font-size: 3.5rem;
     color: #333;
     left: 83vh;
