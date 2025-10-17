@@ -29,12 +29,12 @@ function handleClick(e) {
     if(checkWin(currentPlayer)) {
     if (currentPlayer === `X`) {
         playerOneWins++;
-        playerOneWinScreen.textContent = playerOneWins;
+        playerOneWinScreen.textContent = `Player X Wins: ${playerOneWins}`;
     } 
     
     else {
         playerTwoWins++;
-        playerTwoWinScreen.textContent = playerTwoWins;
+        playerTwoWinScreen.textContent = `Player O Wins: ${playerTwoWins}`;
     }
     alert(`Player ${currentPlayer} just dogged on you`);
     resetGame();
@@ -43,7 +43,7 @@ function handleClick(e) {
 
 else if (board.every(cell => cell)){
     ties++
-    tiesDisplay.textContent = ties;
+    tiesDisplay.textContent = `Ties: ${ties}`;
     alert("yo its a tie btw")
     resetGame();
     return
