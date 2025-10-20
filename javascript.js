@@ -13,11 +13,13 @@ let playerOneWins = 0;
 let playerTwoWins = 0;
 let ties = 0;
 
+//Winning combinations
 const winnerWinnerChickenDinner = [
     [0,1,2], [3,4,5], [6,7,8],
     [0,3,6], [1,4,7], [2,5,8],
     [0,4,8], [2,4,6]
 ];
+
 
 function handleClick(e) {
     const index = cells.indexOf(e.target);
@@ -25,7 +27,10 @@ function handleClick(e) {
 
     board[index] = currentPlayer;
     e.target.textContent = currentPlayer;
+    //Inserts X or O into the clicked cell based on current player
 
+    // Checks for a win, if current player is X it checks for X win, else checks for O win
+    // Runs if checkWin returns true
     if(checkWin(currentPlayer)) {
     if (currentPlayer === `X`) {
         playerOneWins++;
@@ -61,10 +66,18 @@ function resetGame() {
     currentPlayer = 'X';
 }
 
+//some() checks if at least one element in the array passes the test
+//every() checks if all elements in the array pass the test
+// Checks if a player won by checking if X or O occupies all 3 elements of the array
+// player = either X or O depending on whose turn it is
 function checkWin(player) {
-    return winnerWinnerChickenDinner.some(Dinner => Dinner.every(index => board[index] === player)
+    return winnerWinnerChickenDinner.some(Dinner => 
+        Dinner.every(index => board[index] === player)
     )
 }
+//Dinner is each winning combination in the array winnerWinnerChickenDinner
+
+// Calls handleClick function on each cell when clicked
 cells.forEach(cell => cell.addEventListener(`click`, handleClick));
 
 
